@@ -9,7 +9,11 @@
   "keywords": [
     "report"
   ],
-  "author": "jacky.gao@bstek.com",
+  "author": {
+    "name":"Gaojie",
+    "email":"jacky.gao@bstek.com",
+    "url":"http://www.bstek.com"
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "bootbox": "^4.4.0",
