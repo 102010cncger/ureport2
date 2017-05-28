@@ -10,7 +10,7 @@
     "report"
   ],
   "author": "jacky.gao@bstek.com",
-  "license": "GPL-3.0",
+  "license": "Apache-2.0",
   "dependencies": {
     "bootbox": "^4.4.0",
     "bootstrap": "^3.3.7",
