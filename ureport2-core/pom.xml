@@ -109,4 +109,6 @@
 		<name>Bstek</name>
 		<url>http://www.bstek.com</url>
 	</organization>	
+	<name>UReport2 Core Project</name>
+	<url>https://github.com/jacky6024/ureport2/tree/master/ureport2-core</url>
 </project>
