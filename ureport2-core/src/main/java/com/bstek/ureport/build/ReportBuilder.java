@@ -119,14 +119,18 @@ public class ReportBuilder extends BasePagination implements ApplicationContextA
 				}
 				JdbcDatasourceDefinition ds=(JdbcDatasourceDefinition)dsDef;
 				List<Dataset> ls=ds.buildDatasets(conn, parameters);
-				for(Dataset dataset:ls){
-					datasetMap.put(dataset.getName(), dataset);
+				if(ls!=null){
+					for(Dataset dataset:ls){
+						datasetMap.put(dataset.getName(), dataset);
+					}					
 				}
 			}else if(dsDef instanceof SpringBeanDatasourceDefinition){
 				SpringBeanDatasourceDefinition ds=(SpringBeanDatasourceDefinition)dsDef;
 				List<Dataset> ls=ds.getDatasets(applicationContext, parameters);
-				for(Dataset dataset:ls){
-					datasetMap.put(dataset.getName(), dataset);
+				if(ls!=null){
+					for(Dataset dataset:ls){
+						datasetMap.put(dataset.getName(), dataset);
+					}
 				}
 			}else if(dsDef instanceof BuildinDatasourceDefinition){
 				String dsName=dsDef.getName();
