@@ -101,8 +101,6 @@ public class ElUtils {
 
     /**
      * 数据准备阶段将表达式转换成为后缀式栈
-     * @param expression
-     * @param postfixStack
      */
     private static void prepare(String expression,Stack<String> postfixStack) {
     	Stack<Character> opStack = new Stack<Character>();
@@ -179,9 +177,6 @@ public class ElUtils {
 
     /**
      * 利用ASCII码-40做下标去算术符号优先级
-     * @param cur
-     * @param peek
-     * @return
      */
     public static boolean compare(char cur, char peek) {// 如果是peek优先级高于cur，返回true，默认都是peek优先级要低
     	if(cur=='%')cur='*';

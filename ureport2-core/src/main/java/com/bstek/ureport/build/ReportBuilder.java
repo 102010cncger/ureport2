@@ -144,9 +144,11 @@ public class ReportBuilder extends BasePagination implements ApplicationContextA
 					throw new ReportComputeException("Buildin datasource ["+dsName+"] not exist.");
 				}
 				BuildinDatasourceDefinition ds=(BuildinDatasourceDefinition)dsDef;
-				List<Dataset> ls=ds.buildDatasets(conn, parameters);					
-				for(Dataset dataset:ls){
-					datasetMap.put(dataset.getName(), dataset);
+				List<Dataset> ls=ds.buildDatasets(conn, parameters);
+				if(ls!=null){					
+					for(Dataset dataset:ls){
+						datasetMap.put(dataset.getName(), dataset);
+					}
 				}
 			}
 		}

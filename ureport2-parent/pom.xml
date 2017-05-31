@@ -104,6 +104,59 @@
 					<encoding>utf-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<!-- 		    
+			<plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-source-plugin</artifactId>
+		      <version>2.2.1</version>
+		      <executions>
+		        <execution>
+		          <id>attach-sources</id>
+		          <goals>
+		            <goal>jar-no-fork</goal>
+		          </goals>
+		        </execution>
+		      </executions>
+		    </plugin>
+		     -->
+		    <plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-javadoc-plugin</artifactId>
+		      <version>2.9.1</version>
+		      <executions>
+		        <execution>
+		          <id>attach-javadocs</id>
+		          <goals>
+		            <goal>jar</goal>
+		          </goals>
+		        </execution>
+		      </executions>
+		    </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>		    			
 		</plugins>
 	</build>
 	<repositories>
@@ -112,18 +165,22 @@
 			<url>http://nexus.bsdn.org/content/groups/public/</url>
 		</repository>
 	</repositories>
+
 	<distributionManagement>
-		<repository>
-			<id>dorado-releases</id>
-			<name>Dorado Releases Repository</name>
-			<url>http://nexus.bsdn.org/content/repositories/dorado_releases/</url>
-		</repository>
 		<snapshotRepository>
-			<id>dorado-snapshots</id>
-			<name>Dorado Snapshots Repository</name>
-			<url>http://nexus.bsdn.org/content/repositories/dorado_snapshots</url>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
 	</distributionManagement>
+
 	<name>UReport2 Parent Project</name>
 	<url>https://github.com/jacky6024/ureport2/tree/master/ureport2-parent</url>
+	<issueManagement>
+		<url>${jira.browse.url}/VELOCITY</url>
+	</issueManagement>
+	<description>UReport2 Parent Project</description>
 </project>
