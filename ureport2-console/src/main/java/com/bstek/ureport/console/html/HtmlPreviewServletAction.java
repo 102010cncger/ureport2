@@ -84,6 +84,20 @@ public class HtmlPreviewServletAction extends RenderPageServletAction {
 				context.put("pageIndex", htmlReport.getPageIndex()); 
 				context.put("error", false);
 				context.put("file", req.getParameter("_u"));
+				Tools tools=null;
+				String toolsInfo=req.getParameter("_t");
+				if(StringUtils.isNotBlank(toolsInfo)){
+					tools=new Tools(false);
+					String[] infos=toolsInfo.split(",");
+					for(String name:infos){
+						tools.doInit(name);
+					}
+					context.put("_t", toolsInfo);
+					context.put("hasTools", true);
+				}else{
+					tools=new Tools(true);
+				}
+				context.put("tools", tools);
 			}
 			context.put("contextPath", req.getContextPath());
 			resp.setContentType("text/html");
